@@ -29,6 +29,7 @@ func (pool *Pool) HandleTask() (err error) {
 		}
 	}()
 	task := <-pool.Ch
+	pool.Logger.Info("HandleTask task:%+v", task)
 	err = task.Handle()
 	return err
 }
